@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+    
+    <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+        <meta name="author" content="Angeles Nieto Amuy">
+        <meta name="description" content="Formulario de Acceso">
+
+        <link rel="stylesheet" href="./style.css">
+    
+        
+                <title> Formulario de Acceso </title>    
+ <!-- 
+        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+         -->
+        <!-- Link hacia el archivo de estilos css -->
+        
+        
+        <style type="text/css">
+            
+        </style>
+        
+        <script type="text/javascript">
+
+
+  function myFunction() {
+
+                    let campos =document.getElementsByClassName("textRequired")
+                   for(i=0;i<campos.length;i++){
+
+                         if (campos[i].value == '') {
+                                      campos[i].classList.remove("borderColorGreen");           
+                                    campos[i].classList.add("borderColorRed");
+                                }
+                                else {
+                                    campos[i].classList.remove("borderColorRed");
+                                   campos[i].classList.add("borderColorGreen");
+                                 
+                                }
+                          if (campos[i].name=='email' && campos[i].value.includes('@')==false){
+                                    campos[i].classList.remove("borderColorGreen");           
+                                    campos[i].classList.add("borderColorRed");
+                          }  
+                            if (campos[i].name=='pass' && (campos[i].value!==campos[i+1].value || campos[i].value.length<8)){
+                                    campos[i].classList.remove("borderColorGreen");           
+                                    campos[i].classList.add("borderColorRed");
+                          } 
+                                  if (campos[i].name=='confirmPass' &&  campos[i].value.length<8){
+                                    campos[i].classList.remove("borderColorGreen");           
+                                    campos[i].classList.add("borderColorRed");
+                          } 
+
+
+                     }
+  
+  }
+           
+          
+
+    </script>
+        
+    </head>
+    
+    <body>
+        
+        <div id="contenedor">
+            <div id="central">
+                <div id="login">
+                    <div class="titulo">
+                        Create Account
+                    </div>
+                    <form id="loginform">
+                        <label>Nombre</label>
+                        <input type="text"    class="textRequired" name="usuario" required>
+                        <label class=""></label>
+                               <label>Email</label>
+                        <input type="email" name="email" class="textRequired" required>
+                               <label>Clave</label>
+                        <input type="password" name="pass" class="textRequired"  required>
+                               <label>Confirmar su clave</label>
+                        <input type="password" class="textRequired" name="confirmPass"required>                
+                        
+                        <button type="submit" title="send" name="send" onclick="myFunction()">Enviar</button>
+                    </form>
+                  
+                </div>
+         
+            </div>
+        </div>
+            
+    </body>
+</html>
